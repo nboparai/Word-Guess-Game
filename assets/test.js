@@ -1,0 +1,1 @@
+document.getElementById("hold").innerHTML="hello world";
