@@ -18,11 +18,12 @@ for (let j = 0; j < remainingGuesses; j++) {
     if (letter=targetWord[j]) {
         answer[j]=letterChosen;
         remainingGuesses--;
-    } 
+        alert("your got it right")
+    } else{ alert("try another letter")}
         
     }
 document.onkeyup=function(event){
-    if (event.keyCode>=65 && event.keyCode<=99){
+    if (event.keyCode>=97 && event.keyCode<=122){
         letterChosen(event.key);
     }
 }
