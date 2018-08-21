@@ -7,8 +7,10 @@ for (let i = 0; i < targetWord.length; i++) {
 }
 var remainingGuesses;
 remainingGuesses=targetWord.length;
-document.getElementById("lives").textContent=remainingGuesses;
-document.getElementById("hold").textContent=answer.join(" ");
+var totalLives = document.getElementById("lives");
+var placeholder =document.getElementById("hold");
+totalLives.textContent="Guesses remianing"+ remainingGuesses;
+placeholder.textContent=answer.join(" ");
 
 
 function letterChosen(letter) {  
@@ -18,13 +20,16 @@ for (let j = 0; j < remainingGuesses; j++) {
     if (letter=targetWord[j]) {
         answer[j]=letterChosen;
         remainingGuesses--;
-        alert("your got it right")
+        alert("you got it right")
     } else{ alert("try another letter")}
         
     }
+var userText = document.getElementById("user-text");
 document.onkeyup=function(event){
-    if (event.keyCode>=97 && event.keyCode<=122){
-        letterChosen(event.key);
-    }
+        userText.textContent= event.key;
+        console.log(userText);
+    
+    
 }
+letterChosen(userText);
 }
