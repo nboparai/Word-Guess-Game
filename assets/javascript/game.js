@@ -9,10 +9,12 @@ for (let i = 0; i < targetWord.length; i++) {
     answer.push("_");
     
 }
-var remainingGuesses=targetWord.length;
+
+
+var phincorrect=document.getElementById("incorrectWordbank")
 var totalLives = document.getElementById("lives");
 var placeholder =document.getElementById("hold");
-totalLives.textContent="Guesses remianing"+ remainingGuesses;
+totalLives.textContent="Total Guesses"+" "+ targetWord.length;
 placeholder.textContent=answer.join(" ");
 
 var userText = document.getElementById("user-text");
@@ -20,26 +22,31 @@ document.onkeyup=function(event){
     
         // if (event.keycode>=97 && event.keycode<=122) {
             userText.textContent =event.key;
+            
+            
             console.log(userText.textContent);
             letterChosen(userText.textContent);
             
         }
     // }
     function letterChosen(letter) {  
-
+        
         console.log("letter", letter);
-        console.log("remainingguesses", remainingGuesses);
+        
         for (let j = 0; j < targetWord.length; j++) {
+         
+          
             if (letter==targetWord[j]) {
                 answer[j]=letter;
                 placeholder.textContent=answer.join(" ");
                 console.log("answer", answer[j]);
                 console.log("whole array", answer);
-                remainingGuesses--;
-            
+
             } else{
-                console.log("else");
-                incorrect.push(letter);
+                
+                incorrect.push=letter;
+                
+                phincorrect.textContent= "wrong guesses" + " "+incorrect;
                 }
                 
             }
